@@ -1,4 +1,4 @@
-name: test
+name: Test
 
 on:
   push:
@@ -7,15 +7,14 @@ jobs:
   start:
     name: Setup Ubuntu
     runs-on: ubuntu-latest
+    env:
+      ECHO_HELLO: echo "Hello, World!!"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Initializes
-        run: &echoHello echo Hello,World!!
       
       - name: Hello, World!!-1
-        run: *echoHello
+        run: $ECHO_HELLO
 
       - name: Hello, World!!-2
-        run: *echoHello
+        run: $ECHO_HELLO
